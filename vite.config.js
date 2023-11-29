@@ -12,8 +12,8 @@ export default defineConfig({
     }
   },
   build: {
-    root: './vue3-test/',
     rollupOptions: {
+      base: './vue3-test/',
       output: {
         assetFileNames: (assetInfo) => {
           var info = assetInfo.name.split(".");
