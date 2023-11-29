@@ -22,10 +22,10 @@ export default defineConfig({
           } else if (/woff|woff2/.test(extType)) {
             extType = "css";
           }
-          return `/vue3-test/static/${extType}/[name]-[hash][extname]`;
+          return `vue3-test/static/${extType}/[name]-[hash][extname]`;
         },
-        chunkFileNames: "/vue3-test/static/js/[name]-[hash].js",
-        entryFileNames: "/vue3-test/static/js/[name]-[hash].js",
+        chunkFileNames: "vue3-test/static/js/[name]-[hash].js",
+        entryFileNames: "vue3-test/static/js/[name]-[hash].js",
       },
     }
   },
