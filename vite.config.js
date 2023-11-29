@@ -12,6 +12,7 @@ export default defineConfig({
     }
   },
   build: {
+    root: './vue3-test/',
     rollupOptions: {
       output: {
         assetFileNames: (assetInfo) => {
@@ -22,10 +23,10 @@ export default defineConfig({
           } else if (/woff|woff2/.test(extType)) {
             extType = "css";
           }
-          return `vue3-test/static/${extType}/[name]-[hash][extname]`;
+          return `static/${extType}/[name]-[hash][extname]`;
         },
-        chunkFileNames: "vue3-test/static/js/[name]-[hash].js",
-        entryFileNames: "vue3-test/static/js/[name]-[hash].js",
+        chunkFileNames: "static/js/[name]-[hash].js",
+        entryFileNames: "static/js/[name]-[hash].js",
       },
     }
   },
