@@ -1,5 +1,6 @@
 {
   "name": "vue-composition-api-basics",
+  "homepage": "https://github.com/fjfoxru/vue3-test/",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",

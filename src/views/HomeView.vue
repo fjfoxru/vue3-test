@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     
-    <h2>{{ appTitle }}</h2>
+    <h2 ref="appTitleRef">{{ appTitle }}</h2>
 
     <h3>{{ counterData.title }}:</h3>
 
@@ -24,7 +24,7 @@
 </template>
 
 <script setup>
-  import { reactive, computed, watch, onMounted } from 'vue'
+  import { ref, reactive, computed, watch, onMounted, nextTick } from 'vue'
   import { vAutofocus } from '@/directives/vAutofocus'
   import { vExample } from '@/directives/vExample'
 
@@ -32,7 +32,9 @@
   const appTitle = 'Приложение счетчик'
   onMounted(() => {
     console.log('хук')
+    console.log(`Ширина заголовка ${ appTitleRef.value.offsetWidth } px`)
   })
+  const appTitleRef = ref(null)
 
 /* Счетчик*/
   const counterData = reactive({
@@ -48,8 +50,11 @@
     if (counterData.count % 2 === 0) return 'четное'
     return 'нечетное'
   })
-  const increaseCounter = (amount, e) => {
+  const increaseCounter = async (amount, e) => {
+    console.log(e)
     counterData.count += amount
+    await nextTick()
+    console.log('После nextTick')
   }
   const decreaseCounter = amount => {
     counterData.count -= amount
